@@ -1,5 +1,8 @@
 #include "apple.h"
 
+Apple::Apple(int row, int col, AppleType type)
+    : row(row), col(col), type(type), spawnTurn(0) {}
+
 int Apple::getRow() const {
     return row;
 }

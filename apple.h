@@ -5,7 +5,7 @@ enum class AppleType {NORMAL, GOLDEN}; //Two types of apple
 
 class Apple{
     public:
-        Apple(int row, int col, AppleType type, int spawnTurn); //Constructor
+        Apple(int row, int col, AppleType type = AppleType::NORMAL); //Constructor
 
         int getRow() const;
         int getCol() const;
