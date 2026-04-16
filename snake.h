@@ -25,9 +25,4 @@ class Snake{
         std::vector<std::pair<int, int>> segments;
 };
 
-
-
-
-
-
 #endif
