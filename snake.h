@@ -1,7 +1,8 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
-#include <vector>;
+#include <vector>
+#include <utility>
 
 enum class Direction {UP, DOWN, LEFT, RIGHT};
 
