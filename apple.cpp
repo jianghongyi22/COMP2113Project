@@ -16,6 +16,7 @@ AppleType Apple::getType() const {
 }
 
 int Apple::getPoints(int currentTurn) const {
+    if (type == AppleType::NORMAL) return 1;
     int turnPassed = currentTurn - spawnTurn;
     int point = 12 - turnPassed / 5 * 2;
     if (point > 0) return point;

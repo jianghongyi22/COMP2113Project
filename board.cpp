@@ -38,10 +38,10 @@ bool Board::isInside(int row, int col) const {
     return row >= 0 && row < height && col >= 0 && col < width;
 }
 
-int Board::getWidth(){
+int Board::getWidth() const {
     return width;
 }
 
-int Board::getHeight(){
+int Board::getHeight() const {
     return height;
 }

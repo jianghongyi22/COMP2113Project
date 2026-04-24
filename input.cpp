@@ -26,7 +26,7 @@ Key Input::getKeyPress(){
     if (n <= 0) return Key::NONE;
     //Read arrow or quit
     if (buf[0] == '\x1b' && buf[1] == '['){
-        switch (buf[3]){
+        switch (buf[2]){
             case 'A': return Key::UP;
             case 'B': return Key::DOWN;
             case 'C': return Key::RIGHT;

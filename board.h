@@ -9,8 +9,8 @@ class Board{
         Board(int width, int height);
         void render(const Snake& snake, const Apple* normalApple, const Apple* goldenApple) const;
         bool isInside(int row, int col) const;
-        int getWidth();
-        int getHeight();
+        int getWidth() const;
+        int getHeight() const;
     private:
         int width;
         int height;
