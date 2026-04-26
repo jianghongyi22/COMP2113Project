@@ -1,7 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-enum class Key {UP, DOWN, LEFT, RIGHT, NONE, QUIT};
+enum class Key {UP, DOWN, LEFT, RIGHT, NONE, QUIT, PAUSE};
 
 class Input{
     public:
