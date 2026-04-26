@@ -36,6 +36,9 @@ Key Input::getKeyPress(){
     else if (buf[0] == 'q' || buf[0] == 'Q'){
         return Key::QUIT;
     }
+    else if (buf[0] == 'p' || buf[0] == 'P'){
+        return Key::PAUSE;
+    }
     return Key::NONE;
 }
 
