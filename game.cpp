@@ -64,6 +64,12 @@ void Game::step(){
     int r = head.first;
     int c = head.second;
 
+    if (!board.isInside(r,c) || snake.collideWithSelf()){
+        stop = true;
+        win = false;
+        return;
+    }
+
 
     if (same(r, c, apple)){
         score.add(apple->getPoints(turn));
