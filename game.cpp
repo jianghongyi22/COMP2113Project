@@ -1,9 +1,11 @@
 #include "game.h"
+#include "file_output.h"
 #include <iostream>
 #include <vector>
 #include <chrono>
 #include <thread>
 #include <ctime>
+#include <string>
 
 Game::Game(int w, int h, Difficulty selectdifficulty)
     : board(w, h),
@@ -46,6 +48,7 @@ void Game::run(){
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(delay()));
     }
+    utils::updateHighestScores("record.txt", score.get());
     endText();
 }
 
