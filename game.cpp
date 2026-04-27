@@ -177,9 +177,11 @@ const char* Game::difficultyName() const{
         case Difficulty::INSANE:
             return "insane";
     }
-
+}
+/*
     return "medium";
 }
+*/
 void Game::endText(){
     bool newBest = score.saveBest();
     std::cout << "\n";
