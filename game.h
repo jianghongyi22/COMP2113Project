@@ -8,9 +8,11 @@
 #include "score.h"
 #include <random>
 
+enum class Difficulty {EASY, MEDIUM, HARD, INSANE};
+
 class Game{
     public:
-        Game(int w = 20, int h = 12);
+        Game(int w = 20, int h = 20, Difficulty difficulty = Difficulty::MEDIUM);
         ~Game();
         void run();
 
@@ -21,9 +23,9 @@ class Game{
         Score score;
         Apple* apple;
         Apple* gold;
+        DIfficulty difficulty;
         int turn;
         int eaten;
-        int goal;
         bool stop;
         bool pause;
         bool win;
@@ -37,6 +39,7 @@ class Game{
         bool same(int r, int c, const Apple* a) const;
         bool freeCell(int r, int c) const;
         int delay() const;
+        const char* difficultyName() const;
         void endText();
 };
 
