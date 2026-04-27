@@ -5,6 +5,42 @@
 #include <sstream>
 #include <string>
 
+int readinput(const std::string& prompt, int minvalue, int maxvalue){
+    while (true){
+        std::cout << prompt;
+        std::string line;
+        std::getline(std::cin, line);
+
+        std::stringstream ss(line);
+        int value;
+        char extra;
+
+        if (ss >> value && !(ss >> extra) && value >= minvalue && value <= maxvalue){
+            return value;
+        }
+
+        std::cout << "Please enter an integer from "
+                  << minvalue << " to " << maxvalue << ".\n";
+    }
+}
+
+Difficulty readdifficulty(){
+    while (true){
+        std::cout << "Choose difficulty [easy / medium / hard / insane] ";
+        std::string choice;
+        std::getline(std::cin, choice);
+        if (choice == "medium"){
+             return Difficulty::MEDIUM;
+        }
+        if (choice == "hard"){
+             return Difficulty::MEDIUM;
+        }
+        if (choice == "insane"){
+             return Difficulty::INSANE;
+        }
+        std::cout << "Invalid difficulty. Please choose easy, medium, hard, or insane.\n";
+    }
+}
 
 
 int main(){
