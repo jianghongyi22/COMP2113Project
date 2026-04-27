@@ -9,7 +9,7 @@ snake_game: $(OBJ)
 	$(CXX) $(CXXFLAGS) -c $<
 
 clean:
-	rm -f *.o snake_game highscore.txt
+	rm -f *.o snake_game
 
 run: snake_game
 	./snake_game

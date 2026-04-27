@@ -1,6 +1,7 @@
 #include "game.h"
 #include <algorithm>
 #include <cctype>
+#include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -24,7 +25,7 @@
     }
 } */
 
-bool seekDifficulty(const std::string& choice, Difficulty& difficulty){
+Difficulty seekDifficulty(const std::string& choice){
         if (choice == "easy"){
              return Difficulty::EASY;
         }
@@ -37,13 +38,14 @@ bool seekDifficulty(const std::string& choice, Difficulty& difficulty){
         if (choice == "insane"){
              return Difficulty::INSANE;
         }
-        std::cout << "Invalid difficulty. Please choose easy, medium, hard, or insane.\n";
+        else return Difficulty::INVALID;
     }
-}
 
-bool readConfig(const std::string& fileName, int& width, int& height, Difficulty& difficulty){
-    std::ifstream in(fileName);
-    if (!in){
+
+bool readConfig(const std::string& fileName, int& width, int& height, Difficulty &difficulty){
+    std::ifstream in;
+    in.open(fileName);
+    if (in.fail()){
           std::cout << "Cannot open config file: " << fileName << "\n";
         return false;
     }
@@ -61,12 +63,16 @@ bool readConfig(const std::string& fileName, int& width, int& height, Difficulty
         std::cout << "Invalid board size. Width and height should be from 10 to 30.\n";
         return false;
     }
-    if (!seekDifficulty(difficultyText, difficulty)){
+    if (seekDifficulty(difficultyText) == Difficulty::INVALID){
         std::cout << "Invalid difficulty. Please use easy, medium, hard, or insane.\n";
         return false;
     }
+    difficulty = seekDifficulty(difficultyText);
+    in.close();
+    return true;
+}
 
-int main(int argc, char* argv[]){
+int main(){
     int width = 20;
     int height = 20;
     Difficulty difficulty;
@@ -82,16 +88,16 @@ int main(int argc, char* argv[]){
     }
     Difficulty difficulty = readdifficulty();    */
 
-    if (argc < 2){
+    /*if (argc < 2){
         std::cout << "Usage: ./snake_game <config_number>\n";
         return 1;
     }
 
     std::string configFile = std::string(argv[1]) + ".txt";
-    if (!readConfig(configFile, width, height, difficulty)){
+    */
+    if (!readConfig("input.txt", width, height, difficulty)){
         return 1;
     }
-    
     Game game(width, height, difficulty);
     game.run();
     

@@ -20,13 +20,6 @@ int Score::get() const{
 }
 
 int Score::getBest() const{
-    return best;
-}
-
-bool Score::saveBest(){
-    if (num <= best) return false;
-    best = num;
-    std::ofstream out(fileName);
-    if (out) out << best;
-    return true;
+    if (num > best) return num;
+    else return best;
 }

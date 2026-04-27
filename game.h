@@ -8,7 +8,7 @@
 #include "score.h"
 #include <random>
 
-enum class Difficulty {EASY, MEDIUM, HARD, INSANE};
+enum class Difficulty {EASY, MEDIUM, HARD, INSANE, INVALID};
 
 class Game{
     public:

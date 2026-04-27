@@ -10,7 +10,7 @@
 Game::Game(int w, int h, Difficulty selectdifficulty)
     : board(w, h),
       snake(h / 2, w / 2, Direction::RIGHT),
-      score("highscore.txt"),
+      score("record.txt"),
       apple(nullptr), gold(nullptr),
       difficulty(selectdifficulty),
       turn(0), eaten(0), stop(false), pause(false), win(false), quit(false),
@@ -154,7 +154,7 @@ bool Game::freeCell(int r, int c) const{
 }
 
 int Game::delay() const{
-    int d;
+    int d = 200;
     switch (difficulty){
          case Difficulty::EASY:
              d = 250;
@@ -168,6 +168,9 @@ int Game::delay() const{
          case Difficulty::INSANE:
              d = 50;
              break;
+        case Difficulty::INVALID:
+            d = 200;
+            break;
     }
     return d;
 }
@@ -182,17 +185,17 @@ const char* Game::difficultyName() const{
             return "hard";
         case Difficulty::INSANE:
             return "insane";
+        case Difficulty::INVALID:
+            break;
     }
 
     return "medium";
 }
 void Game::endText(){
-    bool newBest = score.saveBest();
     std::cout << "\n";
     if (quit) std::cout << "Quit game.\n";
     else if (win) std::cout << "You win.\n";
     else std::cout << "Game over.\n";
     std::cout << "Final score: " << score.get() << "\n";
-    if (newBest) std::cout << "New best score saved.\n";
-    else std::cout << "Best score: " << score.getBest() << "\n";
+    std::cout << "Best score: " << score.getBest() << "\n";
 }

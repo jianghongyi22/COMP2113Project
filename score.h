@@ -5,11 +5,10 @@
 
 class Score{
     public:
-        Score(const std::string& file = "highscore.txt");
+        Score(const std::string& file = "record.txt");
         void add(int n);
         int get() const;
         int getBest() const;
-        bool saveBest();
 
     private:
         int num;
