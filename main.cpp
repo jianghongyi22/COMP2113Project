@@ -24,7 +24,7 @@
     }
 } */
 
-bool seekDifficulty(const std::string& text, Difficulty& difficulty){
+bool seekDifficulty(const std::string& choice, Difficulty& difficulty){
         if (choice == "easy"){
              return Difficulty::EASY;
         }
