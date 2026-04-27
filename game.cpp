@@ -186,7 +186,7 @@ void Game::endText(){
     bool newBest = score.saveBest();
     std::cout << "\n";
     if (quit) std::cout << "Quit game.\n";
-    else if (win) std::cout << "You win.\n";
+    /*else if (win) std::cout << "You win.\n"; */
     else std::cout << "Game over.\n";
     std::cout << "Final score: " << score.get() << "\n";
     if (newBest) std::cout << "New best score saved.\n";
