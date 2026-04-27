@@ -64,12 +64,11 @@ void Game::step(){
     int r = head.first;
     int c = head.second;
 
-    if (!board.isInside(r,c) || snake.collideWithSelf()){
+    if (!board.isInside(r,c) || snake.collidesWithSelf()){
         stop = true;
         win = false;
         return;
     }
-
 
     if (same(r, c, apple)){
         score.add(apple->getPoints(turn));
@@ -97,11 +96,12 @@ void Game::step(){
         std::uniform_int_distribution<int> dis(0, 99);
         if (dis(rng) < 35) newApple(AppleType::GOLDEN);
     }
-*/
+
     if (snake.getLength() >= board.getWidth() * board.getHeight()){
         stop = true;
         win = true;
     } 
+*/
 }
 
 void Game::draw() const{
@@ -183,16 +183,14 @@ const char* Game::difficultyName() const{
         case Difficulty::INSANE:
             return "insane";
     }
-}
-/*
+
     return "medium";
 }
-*/
 void Game::endText(){
     bool newBest = score.saveBest();
     std::cout << "\n";
     if (quit) std::cout << "Quit game.\n";
-    /*else if (win) std::cout << "You win.\n"; */
+    else if (win) std::cout << "You win.\n";
     else std::cout << "Game over.\n";
     std::cout << "Final score: " << score.get() << "\n";
     if (newBest) std::cout << "New best score saved.\n";
