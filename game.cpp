@@ -17,8 +17,8 @@ Game::Game(int w, int h, Difficulty selectdifficulty)
 }
 
 Game::~Game(){
-  delete apple;
- delete gold;
+    delete apple;
+    delete gold;
 }
 
 void Game::run(){
@@ -92,10 +92,10 @@ void Game::step(){
         if (dis(rng) < 35) newApple(AppleType::GOLDEN);
     }
 */
-    if (score.get() >= goal || snake.getLength() >= board.getWidth() * board.getHeight()){
+    if (snake.getLength() >= board.getWidth() * board.getHeight()){
         stop = true;
         win = true;
-    }
+    } 
 }
 
 void Game::draw() const{

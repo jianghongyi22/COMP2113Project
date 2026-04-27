@@ -12,7 +12,7 @@ enum class Difficulty {EASY, MEDIUM, HARD, INSANE};
 
 class Game{
     public:
-        Game(int w = 20, int h = 12);
+        Game(int w, int h, Difficulty selectdifficulty);
         ~Game();
         void run();
 

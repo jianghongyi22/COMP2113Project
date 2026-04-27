@@ -30,13 +30,13 @@ Difficulty readdifficulty(){
         std::string choice;
         std::getline(std::cin, choice);
         if (choice == "easy"){
-             return DIfficuty::EASY;
+             return Difficulty::EASY;
         }
         if (choice == "medium"){
              return Difficulty::MEDIUM;
         }
         if (choice == "hard"){
-             return Difficulty::MEDIUM;
+             return Difficulty::HARD;
         }
         if (choice == "insane"){
              return Difficulty::INSANE;
