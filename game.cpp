@@ -81,7 +81,7 @@ void Game::step(){
 
     if (same(r, c, gold)){
         score.add(gold->getPoints(turn));
-        snake.grow();
+        //snake.grow();
         delete gold;
         gold = nullptr;
     }
@@ -90,12 +90,12 @@ void Game::step(){
         delete gold;
         gold = nullptr;
     }
-
+/*
     if (gold == nullptr && turn % 35 == 0){
         std::uniform_int_distribution<int> dis(0, 99);
         if (dis(rng) < 35) newApple(AppleType::GOLDEN);
     }
-
+*/
     if (score.get() >= goal || snake.getLength() >= board.getWidth() * board.getHeight()){
         stop = true;
         win = true;
@@ -152,8 +152,8 @@ bool Game::freeCell(int r, int c) const{
 }
 
 int Game::delay() const{
-    int d = 180 - score.get() / 8 * 15;
-    if (d < 70) d = 70;
+    int d = 180; //- score.get() / 8 * 15;
+    //if (d < 70) d = 70;
     return d;
 }
 

@@ -12,7 +12,7 @@ enum class Difficulty {EASY, MEDIUM, HARD, INSANE};
 
 class Game{
     public:
-        Game(int w = 20, int h = 20, Difficulty difficulty = Difficulty::MEDIUM);
+        Game(int w = 20, int h = 12);
         ~Game();
         void run();
 

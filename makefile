@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra
+CXXFLAGS = -std=c++11 -Wall -Wextra
 OBJ = main.o game.o score.o apple.o board.o input.o snake.o
 
 snake_game: $(OBJ)
@@ -10,3 +10,8 @@ snake_game: $(OBJ)
 
 clean:
 	rm -f *.o snake_game highscore.txt
+
+run: snake_game
+	./snake_game
+
+.PHONY: clean run
