@@ -29,6 +29,9 @@ Difficulty readdifficulty(){
         std::cout << "Choose difficulty [easy / medium / hard / insane] ";
         std::string choice;
         std::getline(std::cin, choice);
+        if (choice == "easy"){
+             return DIfficuty::EASY;
+        }
         if (choice == "medium"){
              return Difficulty::MEDIUM;
         }
