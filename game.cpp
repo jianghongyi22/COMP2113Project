@@ -5,7 +5,7 @@
 #include <thread>
 #include <ctime>
 
-Game:gaming(int w, int h)
+Game::Game(int w, int h)
     : board(w, h),
       snake(h / 2, w / 2, Direction::RIGHT),
       score("highscore.txt"),
@@ -15,9 +15,9 @@ Game:gaming(int w, int h)
     newApple(AppleType::NORMAL);
 }
 
-Game::gaming(){
-    delete apple;
-    delete gold;
+Game::~Game(){
+  delete apple;
+ delete gold;
 }
 
 void Game::run(){
