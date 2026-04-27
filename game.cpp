@@ -100,10 +100,7 @@ void Game::step(){
         if (dis(rng) < 35) newApple(AppleType::GOLDEN);
     }
 
-    if (snake.getLength() >= board.getWidth() * board.getHeight()){
-        stop = true;
-        win = true;
-    } 
+    
 */
 }
 
