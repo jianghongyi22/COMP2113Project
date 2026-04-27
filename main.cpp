@@ -47,7 +47,7 @@ int main(){
     int width = 20;
     int height = 20;
     std::cout << "Do u want to use default board size 20*20? [Y/N]: ";
-    std::Usedefault;
+    std::string Usedefault;
     std::getline(std::cin,Usedefault);
 
     if (Usedefault == "N"){

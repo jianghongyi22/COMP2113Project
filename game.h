@@ -23,7 +23,7 @@ class Game{
         Score score;
         Apple* apple;
         Apple* gold;
-        DIfficulty difficulty;
+        Difficulty difficulty;
         int turn;
         int eaten;
         bool stop;
