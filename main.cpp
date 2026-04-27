@@ -61,7 +61,7 @@ bool readConfig(const std::string& fileName, int& width, int& height, Difficulty
         std::cout << "Invalid board size. Width and height should be from 10 to 30.\n";
         return false;
     }
-    if (!parseDifficulty(difficultyText, difficulty)){
+    if (!seekDifficulty(difficultyText, difficulty)){
         std::cout << "Invalid difficulty. Please use easy, medium, hard, or insane.\n";
         return false;
     }
@@ -69,6 +69,8 @@ bool readConfig(const std::string& fileName, int& width, int& height, Difficulty
 int main(int argc, char* argv[]){
     int width = 20;
     int height = 20;
+    Difficulty difficulty;
+    
     
     /*std::cout << "Do u want to use default board size 20*20? [Y/N]: ";
     std::string Usedefault;
