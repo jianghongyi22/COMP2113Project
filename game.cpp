@@ -5,12 +5,13 @@
 #include <thread>
 #include <ctime>
 
-Game::Game(int w, int h)
+Game::Game(int w, int h, Difficulty selectdifficulty)
     : board(w, h),
       snake(h / 2, w / 2, Direction::RIGHT),
       score("highscore.txt"),
       apple(nullptr), gold(nullptr),
-      turn(0), eaten(0), goal(60), stop(false), pause(false), win(false), quit(false),
+      difficulty(selectdifficulty),
+      turn(0), eaten(0), stop(false), pause(false), win(false), quit(false),
       rng((unsigned)std::time(nullptr)){
     newApple(AppleType::NORMAL);
 }
@@ -63,11 +64,6 @@ void Game::step(){
     int r = head.first;
     int c = head.second;
 
-    if (!board.isInside(r, c) || snake.collidesWithSelf()){
-        stop = true;
-        win = false;
-        return;
-    }
 
     if (same(r, c, apple)){
         score.add(apple->getPoints(turn));
@@ -108,7 +104,7 @@ void Game::draw() const{
               << "   Best: " << score.getBest()
               << "   Length: " << snake.getLength()
               << "   Turn: " << turn << "\n";
-    std::cout << "Goal: " << goal << "   Move: arrow keys   Pause: P   Quit: Q\n";
+    std::cout << "Difficulty: " << difficultyName() << "   Move: arrow keys   Pause: P   Quit: Q\n";
     if (gold != nullptr){
         std::cout << "Golden apple value now: " << gold->getPoints(turn)
                   << "   disappear after: " << 30 - (turn - gold->getSpawnTurn()) << " turns\n";
@@ -152,11 +148,38 @@ bool Game::freeCell(int r, int c) const{
 }
 
 int Game::delay() const{
-    int d = 180; //- score.get() / 8 * 15;
-    //if (d < 70) d = 70;
+    int d;
+    switch (difficulty){
+         case Difficulty::EASY:
+             d = 250;
+             break;
+         case Difficulty::MEDIUM:
+             d = 200;
+             break;
+         case Difficulty::HARD:
+             d = 150;
+             break;
+         case Difficulty::INSANE:
+             d = 50;
+             break;
+    }
     return d;
 }
 
+const char* Game::difficultyName() const{
+    switch (difficulty){
+        case Difficulty::EASY:
+            return "easy";
+        case Difficulty::MEDIUM:
+            return "medium";
+        case Difficulty::HARD:
+            return "hard";
+        case Difficulty::INSANE:
+            return "insane";
+    }
+
+    return "medium";
+}
 void Game::endText(){
     bool newBest = score.saveBest();
     std::cout << "\n";
