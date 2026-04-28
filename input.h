@@ -8,14 +8,14 @@ class Input{
         Input(); //Constructor
         ~Input(); //Destructor
 
-        Key getKeyPress(); //Receive keyboard input
-        void enableRawMode(); //Enable terminal raw mode
-        void disableRawMode(); //Disable terminal raw mode
+        Key getKeyPress(); //Receive keyboard input. Input: None. Output: the key pressed.
+        void enableRawMode(); //Enable terminal raw mode. Input: None. Output: None.
+        void disableRawMode(); //Disable terminal raw mode. Input: None. Output: None.
 
     private:
-        bool rawModeEnabled;
-        int originalTermios; //For restoration
-        int originalFlags; //For restoration
+        bool rawModeEnabled; //Flag.
+        int originalTermios; //For restoration.
+        int originalFlags; //For restoration.
 };
 
 #endif
