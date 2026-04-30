@@ -4,6 +4,11 @@ A terminal-based Snake.io Game written in C++. Control a snake to eat apples, av
 
 ---
 
+## Team members
+
+- Jiang Hongyi UID: 3036480191
+- Zhang Zhanhao UID: 
+
 ## Features
 
 - **Classic snake movement** with arrow keys; 180-degree turn is blocked
