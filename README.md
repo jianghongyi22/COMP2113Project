@@ -1,6 +1,6 @@
-# Snake.io — COMP2113 Project
+# Snake Game — COMP2113 Project
 
-A terminal-based Snake.io Game written in C++. Control a snake to eat apples, avoid walls and self-collision, and chase high scores across four difficulty levels.
+A terminal-based Snake Game written in C++. Control a snake to eat apples, avoid walls and self-collision, and chase high scores across four difficulty levels.
 
 ---
 
