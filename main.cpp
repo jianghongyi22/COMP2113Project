@@ -6,25 +6,6 @@
 #include <sstream>
 #include <string>
 
-/*int readinput(const std::string& prompt, int minvalue, int maxvalue){
-    while (true){
-        std::cout << prompt;
-        std::string line;
-        std::getline(std::cin, line);
-
-        std::stringstream ss(line);
-        int value;
-        char extra;
-
-        if (ss >> value && !(ss >> extra) && value >= minvalue && value <= maxvalue){
-            return value;
-        }
-
-        std::cout << "Please enter an integer from "
-                  << minvalue << " to " << maxvalue << ".\n";
-    }
-} */
-
 Difficulty seekDifficulty(const std::string& choice){
         if (choice == "easy"){
              return Difficulty::EASY;
@@ -77,24 +58,6 @@ int main(){
     int height = 20;
     Difficulty difficulty;
     
-    
-    /*std::cout << "Do u want to use default board size 20*20? [Y/N]: ";
-    std::string Usedefault;
-    std::getline(std::cin,Usedefault);   */
-
-    /*if (Usedefault == "N"){
-        width = readinput("Then enter your preferred width (10-30): ", 10, 30);
-        height = readinput("And what about your preferred height (10-30): ", 10, 30);
-    }
-    Difficulty difficulty = readdifficulty();    */
-
-    /*if (argc < 2){
-        std::cout << "Usage: ./snake_game <config_number>\n";
-        return 1;
-    }
-
-    std::string configFile = std::string(argv[1]) + ".txt";
-    */
     if (!readConfig("input.txt", width, height, difficulty)){
         return 1;
     }

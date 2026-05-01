@@ -85,7 +85,6 @@ void Game::step(){
 
     if (same(r, c, gold)){
         score.add(gold->getPoints(turn));
-        //snake.grow();
         delete gold;
         gold = nullptr;
     }
@@ -94,14 +93,6 @@ void Game::step(){
         delete gold;
         gold = nullptr;
     }
-/*
-    if (gold == nullptr && turn % 35 == 0){
-        std::uniform_int_distribution<int> dis(0, 99);
-        if (dis(rng) < 35) newApple(AppleType::GOLDEN);
-    }
-
-    
-*/
 }
 
 void Game::draw() const{

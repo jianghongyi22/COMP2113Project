@@ -7,7 +7,9 @@ A terminal-based Snake.io Game written in C++. Control a snake to eat apples, av
 ## Team members
 
 - Jiang Hongyi UID: 3036480191
+    Role: Logic of apple, board, snake entities, input processing and top score saving. 
 - Zhang Zhanhao UID: 
+    Role: Logic of the game, score class, programme entry and makefile.
 
 ## Features
 
