@@ -101,7 +101,7 @@ Edit `input.txt` in the project root or use default config:
 
 ```
 20 20
-hard
+easy
 ```
 
 - Line 1: board width and height (integers, 10–30)
