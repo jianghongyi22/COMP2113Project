@@ -8,7 +8,7 @@ A terminal-based Snake Game written in C++. Control a snake to eat apples, avoid
 
 - Jiang Hongyi UID: 3036480191
     Role: Logic of apple, board, snake entities, input processing and top score saving. 
-- Zhang Zhanhao UID: 
+- Zhang Zhanhao UID: 3036482113 
     Role: Logic of the game, score class, programme entry and makefile.
 
 ## Features
